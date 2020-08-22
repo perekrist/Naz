@@ -13,6 +13,8 @@
 		CAFA13E424F0CF1A001A0EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFA13E324F0CF1A001A0EDB /* Assets.xcassets */; };
 		CAFA13E724F0CF1A001A0EDB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFA13E624F0CF1A001A0EDB /* Preview Assets.xcassets */; };
 		CAFA13EA24F0CF1A001A0EDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFA13E824F0CF1A001A0EDB /* LaunchScreen.storyboard */; };
+		CAFA13FC24F0DA9C001A0EDB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA13FB24F0DA9C001A0EDB /* Home.swift */; };
+		CAFA13FE24F0DABD001A0EDB /* CShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA13FD24F0DABC001A0EDB /* CShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		CAFA13E624F0CF1A001A0EDB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAFA13E924F0CF1A001A0EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAFA13EB24F0CF1A001A0EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAFA13FB24F0DA9C001A0EDB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		CAFA13FD24F0DABC001A0EDB /* CShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +62,13 @@
 			children = (
 				CAFA13DD24F0CF13001A0EDB /* AppDelegate.swift */,
 				CAFA13DF24F0CF13001A0EDB /* SceneDelegate.swift */,
-				CAFA13E124F0CF13001A0EDB /* ContentView.swift */,
 				CAFA13E324F0CF1A001A0EDB /* Assets.xcassets */,
 				CAFA13E824F0CF1A001A0EDB /* LaunchScreen.storyboard */,
 				CAFA13EB24F0CF1A001A0EDB /* Info.plist */,
 				CAFA13E524F0CF1A001A0EDB /* Preview Content */,
+				CAFA13E124F0CF13001A0EDB /* ContentView.swift */,
+				CAFA13FB24F0DA9C001A0EDB /* Home.swift */,
+				CAFA13FD24F0DABC001A0EDB /* CShape.swift */,
 			);
 			path = Naz;
 			sourceTree = "<group>";
@@ -148,6 +154,8 @@
 			files = (
 				CAFA13DE24F0CF13001A0EDB /* AppDelegate.swift in Sources */,
 				CAFA13E024F0CF13001A0EDB /* SceneDelegate.swift in Sources */,
+				CAFA13FE24F0DABD001A0EDB /* CShape.swift in Sources */,
+				CAFA13FC24F0DA9C001A0EDB /* Home.swift in Sources */,
 				CAFA13E224F0CF13001A0EDB /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
