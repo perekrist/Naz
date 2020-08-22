@@ -23,8 +23,8 @@ struct MainView: View {
                         .bold()
                         .foregroundColor(Colors.blue)
                     
-                    Text("\(networkService.events[0].date)")
-                        .font(.system(size: 30))
+                    Text("\(Date(timeIntervalSince1970: TimeInterval(networkService.events[0].date)))")
+                        .font(.system(size: 20))
                     
                     Text(networkService.events[0].place)
                         .font(.system(size: 20))

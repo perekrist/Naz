@@ -28,7 +28,8 @@ fileprivate struct NavigateModifier<SomeView: View>: ViewModifier {
                     .navigationBarHidden(true)
                 NavigationLink(destination: destination
                     .navigationBarTitle("")
-                    .navigationBarHidden(true),
+                    .navigationBarHidden(true)
+                    ,
                                isActive: $binding) {
                     EmptyView()
                 }

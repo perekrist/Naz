@@ -13,7 +13,7 @@ import SwiftyJSON
 class NetworkService: ObservableObject {
     var baseURL = "http://i-fan.herokuapp.com/"
     var events: [Event] = [Event(name: "СОЧИ - УРАЛ", date: 1598817600, place: "Стадион Фишт", id: 90)]
-    var sectors: [Sector] = [Sector(name: "Сектор А101", cost: 1300, freePlaces: 125, id: 9090)]
+    var sectors: [Sector] = []
     
     init() {
         getEvents()
