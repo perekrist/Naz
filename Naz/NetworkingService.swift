@@ -21,9 +21,16 @@ class NetworkService: ObservableObject {
         AF.request(baseURL + "signin",
                    method: .post,
                    parameters: parameters,
-                   encoding: URLEncoding.default).responseData { (data) in
-                    
+                   encoding: URLEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    print(response)
                     UserDefaults.standard.set(true, forKey: "isLogIned")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
         }
         
     }
@@ -40,10 +47,18 @@ class NetworkService: ObservableObject {
         AF.request(baseURL + "sign-up",
                    method: .post,
                    parameters: parameters,
-                   encoding: URLEncoding.default).responseData { (data) in
-                    
+                   encoding: URLEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    print(response)
                     UserDefaults.standard.set(true, forKey: "isLogIned")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
         }
+        
     }
 }
 

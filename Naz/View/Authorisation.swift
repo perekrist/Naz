@@ -87,7 +87,11 @@ struct Authorisation: View {
                     HStack {
                         Spacer()
                                                 
-                        Button(action: {}) {
+                        Button(action: {
+                            self.networkService.signIn(login: self.user, password: self.pass) {
+                                print("login")
+                            }
+                        }) {
                             Text("Login")
                                 .fontWeight(.bold)
                                 .foregroundColor(Colors.blue)
@@ -163,7 +167,7 @@ struct Authorisation: View {
                                         
                     Button(action: {
                         self.networkService.signUp(login: self.user, email: self.email, password: self.pass) {
-                            print("hello")
+                            print("sign up")
                         }
                     }) {
                         Text("Sign Up")
@@ -177,9 +181,7 @@ struct Authorisation: View {
                     
                     Spacer()
                 }
-                .padding(.top)
-                
-//                Spacer(minLength: 0)
+                .padding(.top)                
             }
             .padding(.top,(UIApplication.shared.windows.first?.safeAreaInsets.top)! + 50)
             .padding()
