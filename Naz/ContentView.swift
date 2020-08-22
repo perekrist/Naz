@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isLogIned = UserDefaults.standard.value(forKey: "isLogIned") as? Bool ?? true
+    @State var isLogIned = UserDefaults.standard.value(forKey: "isLogIned") as? Bool ?? false
     
     var body: some View {
         VStack {

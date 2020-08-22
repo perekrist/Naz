@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class NetworkService: ObservableObject {
-    var baseURL = "http://math-tester.herokuapp.com/callback"
+    var baseURL = "http://i-fan.herokuapp.com/"
     
     func signIn(login: String, password: String, completion: @escaping () -> Void) {
         
@@ -42,22 +42,23 @@ class NetworkService: ObservableObject {
         
         let parameters: Parameters = ["login": login,
                                       "email": email,
-                                      "password": password,
+                                      "pwd": password,
                                       "id": id]
         
-        AF.request(baseURL + "",
+        AF.request(baseURL + "sign-up",
                    method: .post,
                    parameters: parameters,
                    encoding: URLEncoding.default).responseData { (data) in
                     
-                    if data.data != nil {
-                        let json = try! JSON(data: data.data!)
-                        print(json)
-                        if json != "" {
-                            UserDefaults.standard.set(true, forKey: "isLogIned")
-                            completion()
-                        }
-                    }
+                    print(data.data)
+//                    if data.data != nil {
+//                        let json = try! JSON(data: data.data!)
+//                        print(json)
+//                        if json != "" {
+//                            UserDefaults.standard.set(true, forKey: "isLogIned")
+//                            completion()
+//                        }
+//                    }
         }
     }
 }

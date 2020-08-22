@@ -16,16 +16,14 @@ struct Authorisation: View {
     @State var email = ""
     @State var pass = ""
     @State var rePass = ""
-    
-    @State var colorMain = Color(#colorLiteral(red: 0.002782522002, green: 0.1660973132, blue: 0.2877466083, alpha: 1))
-    
+        
     var body: some View {
         
         ZStack(alignment: Alignment(horizontal: .center, vertical: .top)){
             ZStack {
                 ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)) {
                     
-                    colorMain
+                    Colors.blue
                         .clipShape(CShape())
                     
                     Path { path in
@@ -41,7 +39,7 @@ struct Authorisation: View {
                     }) {
                         Image(systemName: signUp ? "xmark" : "person.fill")
                             .font(.system(size: 25, weight: .bold))
-                            .foregroundColor(colorMain)
+                            .foregroundColor(Colors.blue)
                     }
                     .offset(x: -110, y: -50)
                         .disabled(signUp ? false : true)
@@ -92,7 +90,7 @@ struct Authorisation: View {
                         Button(action: {}) {
                             Text("Login")
                                 .fontWeight(.bold)
-                                .foregroundColor(colorMain)
+                                .foregroundColor(Colors.blue)
                                 .padding(.vertical)
                                 .padding(.horizontal,45)
                                 .background(Color.white)
@@ -116,40 +114,40 @@ struct Authorisation: View {
             VStack(alignment: .leading, spacing: 25) {
                 Text("Sign Up")
                     .font(.system(size: 35, weight: .bold))
-                    .foregroundColor(colorMain)
+                    .foregroundColor(Colors.blue)
                 
                 Text("Username")
-                    .foregroundColor(colorMain)
+                    .foregroundColor(Colors.blue)
                     .padding(.top,10)
                 
                 VStack {
                     TextField("Useraname", text: $user)
                     
                     Divider()
-                        .background(colorMain.opacity(0.5))
+                        .background(Colors.blue.opacity(0.5))
                 }
                 Text("Email")
-                    .foregroundColor(colorMain)
+                    .foregroundColor(Colors.blue)
                     .padding(.top,10)
                 
                 VStack {
                     TextField("Email", text: $email)
                     
                     Divider()
-                        .background(colorMain.opacity(0.5))
+                        .background(Colors.blue.opacity(0.5))
                 }
                 Text("Password")
-                    .foregroundColor(colorMain)
+                    .foregroundColor(Colors.blue)
                     .padding(.top,10)
                 
                 VStack {
                     SecureField("Paswword", text: $pass)
                     
                     Divider()
-                        .background(colorMain.opacity(0.5))
+                        .background(Colors.blue.opacity(0.5))
                 }
                 Text("Re-Enter")
-                    .foregroundColor(colorMain)
+                    .foregroundColor(Colors.blue)
                     .padding(.top,10)
                                 
                 VStack {
@@ -157,7 +155,7 @@ struct Authorisation: View {
                     SecureField("Re-Enter", text: $rePass)
                     
                     Divider()
-                        .background(colorMain.opacity(0.5))
+                        .background(Colors.blue.opacity(0.5))
                 }
                 
                 HStack {
@@ -173,7 +171,7 @@ struct Authorisation: View {
                             .foregroundColor(.white)
                             .padding(.vertical)
                             .padding(.horizontal,45)
-                            .background(colorMain)
+                            .background(Colors.blue)
                             .clipShape(Capsule())
                     }
                     

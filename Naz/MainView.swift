@@ -15,7 +15,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.7937315106, green: 0.7840339541, blue: 0.7840581536, alpha: 1)).edgesIgnoringSafeArea(.all)
+            Colors.grey.edgesIgnoringSafeArea(.all)
             VStack {
                 VStack {
                     Text(event.name)
@@ -33,7 +33,7 @@ struct MainView: View {
                     }) {
                         Text("Купить билет")
                             .padding(15)
-                            .foregroundColor(Color(#colorLiteral(red: 0.002782522002, green: 0.1660973132, blue: 0.2877466083, alpha: 1)))
+                            .foregroundColor(Colors.blue)
                     }
                     .background(Color(#colorLiteral(red: 0.9992646575, green: 0.7418256402, blue: 0.006029339042, alpha: 1)))
                     .cornerRadius(20)
