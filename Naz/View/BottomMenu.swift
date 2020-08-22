@@ -22,7 +22,6 @@ struct BottomMenu: View {
                 
                 Text("Account")
                     .opacity(self.index == 1 ? 1 : 0)
-                
             }
             
             HStack {
@@ -74,7 +73,7 @@ struct BottomMenu: View {
                 .shadow(color: Color.primary.opacity(0.08), radius: 5, x: 5, y: -5)
         }
         .edgesIgnoringSafeArea(.bottom)
-        .navigate(to: Text("hi"), when: $buyTicket)
+        .navigate(to: MatchView(), when: $buyTicket)
     }
 }
 

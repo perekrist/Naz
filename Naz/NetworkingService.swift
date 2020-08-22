@@ -12,6 +12,11 @@ import SwiftyJSON
 
 class NetworkService: ObservableObject {
     var baseURL = "http://i-fan.herokuapp.com/"
+    var events: [Event] = []
+    
+    init() {
+        getEvents()
+    }
     
     func signIn(login: String, password: String, completion: @escaping () -> Void) {
         
@@ -58,7 +63,29 @@ class NetworkService: ObservableObject {
                     print(error.localizedDescription)
                 }
         }
-        
+    }
+    
+    func getEvents() {
+        AF.request(baseURL + "events",
+                   method: .get,
+                   encoding: URLEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    let json = try! JSON(data: response.data!)
+                    if json != "" {
+                        self.events.removeAll()
+                        let result = json["result"].arrayValue
+                        for i in result {
+                            self.events.append(Event(name: i[0].stringValue, date: i[1].intValue, place: i[2].stringValue, id: i[3].intValue))
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
     }
 }
 

@@ -12,4 +12,5 @@ struct Event {
     var name: String
     var date: Int
     var place: String
+    var id: Int
 }
