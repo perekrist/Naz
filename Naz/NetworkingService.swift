@@ -14,6 +14,7 @@ class NetworkService: ObservableObject {
     var baseURL = "http://i-fan.herokuapp.com/"
     var events: [Event] = [Event(name: "СОЧИ - УРАЛ", date: 1598817600, place: "Стадион Фишт", id: 90)]
     var sectors: [Sector] = []
+    var places: [Place] = []
     
     init() {
         getEvents()
@@ -81,7 +82,6 @@ class NetworkService: ObservableObject {
                         for i in result {
                             self.events.append(Event(name: i[0].stringValue, date: i[1].intValue, place: i[2].stringValue, id: i[3].intValue))
                         }
-                        print(self.events.count)
                     }
                     
                 case .failure(let error):
@@ -127,6 +127,29 @@ class NetworkService: ObservableObject {
                         for i in result {
                             self.sectors.append(Sector(name: i[0].stringValue, cost: i[1].doubleValue, freePlaces: i[2].intValue, id: i[3].intValue))
                         }
+                    }
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
+    }
+    
+    func getPlaces(event_id: Int, sector_id: Int) {
+        AF.request(baseURL + "events/\(event_id)/\(sector_id)",
+                   method: .get,
+                   encoding: URLEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    let json = try! JSON(data: response.data!)
+                    if json != "" {
+                        let result = json["result"].arrayValue
+                        for i in result {
+                            self.places.append(Place(row: i[0].intValue, place: i[1].intValue))
+                        }
+                        print(self.places)
                     }
                     
                 case .failure(let error):

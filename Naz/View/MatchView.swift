@@ -11,6 +11,10 @@ import SwiftUI
 struct MatchView: View {
     @ObservedObject var networkService = NetworkService()
     @State var back = false
+    @State var id = 0
+    @State var sector = ""
+    
+    @State var show = false
     
     var body: some View {
         VStack {
@@ -59,6 +63,12 @@ struct MatchView: View {
                             Spacer()
                         }.padding()
                         Divider()
+                    }.onTapGesture {
+                        self.id = sector.id
+                        self.sector = sector.name
+                        self.show.toggle()
+                    }.sheet(isPresented: self.$show) {
+                        PlaceView(id: self.id, sector: self.sector)
                     }
                 }
             }

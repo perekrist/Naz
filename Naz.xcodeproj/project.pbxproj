@@ -25,6 +25,8 @@
 		CAFA140D24F0FE04001A0EDB /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140C24F0FE04001A0EDB /* MatchView.swift */; };
 		CAFA141024F0FE2E001A0EDB /* Sector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140F24F0FE2E001A0EDB /* Sector.swift */; };
 		CAFA141224F10CC1001A0EDB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141124F10CC1001A0EDB /* AccountView.swift */; };
+		CAFA141424F12330001A0EDB /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141324F12330001A0EDB /* Place.swift */; };
+		CAFA141624F125D3001A0EDB /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141524F125D3001A0EDB /* PlaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		CAFA140C24F0FE04001A0EDB /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
 		CAFA140F24F0FE2E001A0EDB /* Sector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
 		CAFA141124F10CC1001A0EDB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		CAFA141324F12330001A0EDB /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		CAFA141524F125D3001A0EDB /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 				CAFA140A24F0F5DE001A0EDB /* BottomMenu.swift */,
 				CAFA140C24F0FE04001A0EDB /* MatchView.swift */,
 				CAFA141124F10CC1001A0EDB /* AccountView.swift */,
+				CAFA141524F125D3001A0EDB /* PlaceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				CAFA140324F0E512001A0EDB /* Event.swift */,
 				CAFA140F24F0FE2E001A0EDB /* Sector.swift */,
+				CAFA141324F12330001A0EDB /* Place.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +278,8 @@
 				CAFA13FE24F0DABD001A0EDB /* CShape.swift in Sources */,
 				CAFA141024F0FE2E001A0EDB /* Sector.swift in Sources */,
 				CAFA140024F0DCE5001A0EDB /* NetworkingService.swift in Sources */,
+				CAFA141424F12330001A0EDB /* Place.swift in Sources */,
+				CAFA141624F125D3001A0EDB /* PlaceView.swift in Sources */,
 				CAFA140B24F0F5DE001A0EDB /* BottomMenu.swift in Sources */,
 				CAFA13FC24F0DA9C001A0EDB /* Authorisation.swift in Sources */,
 				CAFA13E224F0CF13001A0EDB /* ContentView.swift in Sources */,
