@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MatchView: View {
-    @State var sectors: [Sector] = [Sector(name: "Сектор А101", cost: 1300, freePlaces: 125), Sector(name: "Сектор А102", cost: 1400, freePlaces: 105), Sector(name: "Сектор А103", cost: 300, freePlaces: 5)]
+    @ObservedObject var networkService = NetworkService()
     
     var body: some View {
         VStack {
@@ -33,7 +33,7 @@ struct MatchView: View {
                 .foregroundColor(.white)
             
             ScrollView {
-                ForEach(sectors, id: \.self) { sector in
+                ForEach(self.networkService.sectors, id: \.self) { sector in
                     VStack {
                         HStack {
                             Spacer()

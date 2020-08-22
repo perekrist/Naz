@@ -10,6 +10,7 @@ import Foundation
 
 struct Sector: Hashable {
     var name: String
-    var cost: Int
+    var cost: Double
     var freePlaces: Int
+    var id: Int
 }
