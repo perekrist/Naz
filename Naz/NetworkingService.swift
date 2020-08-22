@@ -27,9 +27,13 @@ class Auth: ObservableObject {
             .response { response in
                 switch response.result {
                 case .success:
-                    print(response)
+                    let json = try! JSON(data: response.data!)
+                    if json != "" {
+                        let token = json["token"].stringValue
+                        UserDefaults.standard.set(true, forKey: "isLogIned")
+                        UserDefaults.standard.set(token, forKey: "token")
+                    }
                     
-                    UserDefaults.standard.set(true, forKey: "isLogIned")
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
