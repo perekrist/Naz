@@ -49,7 +49,13 @@ struct MainView: View {
                 
                 ScrollView {
                     VStack {
-                        Text("1")
+                        Text("Список инициатив пуст.")
+                            .foregroundColor(Colors.darkGrey)
+                            .font(.system(size: 30))
+                        
+                        Text("Вы можете создать инициативу на странице создания инициатив.")
+                            .foregroundColor(Colors.darkGrey)
+                        
                     }
                 }
             }
