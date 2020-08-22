@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PlaceView: View {
     @State var id: Int
-    @ObservedObject var networkService = NetworkService()
+    @ObservedObject var networkService = Places()
     @State var sector: String
     
     var body: some View {
@@ -32,6 +32,7 @@ struct PlaceView: View {
                 }
             }.onAppear {
                 self.networkService.getPlaces(event_id: 90, sector_id: self.id)
+                print(self.networkService.places)
             }
         }
     }

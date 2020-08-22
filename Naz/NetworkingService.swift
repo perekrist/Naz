@@ -10,16 +10,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class NetworkService: ObservableObject {
+class Auth: ObservableObject {
     var baseURL = "http://i-fan.herokuapp.com/"
-    var events: [Event] = [Event(name: "СОЧИ - УРАЛ", date: 1598817600, place: "Стадион Фишт", id: 90)]
-    var sectors: [Sector] = []
-    var places: [Place] = []
-    
-    init() {
-        getEvents()
-        getSections(id: 90)
-    }
     
     func signIn(login: String, password: String, completion: @escaping () -> Void) {
         
@@ -68,28 +60,6 @@ class NetworkService: ObservableObject {
         }
     }
     
-    func getEvents() {
-        AF.request(baseURL + "events",
-                   method: .get,
-                   encoding: URLEncoding.default)
-            .validate(statusCode: 200..<300)
-            .responseJSON { response in
-                switch response.result {
-                case .success:
-                    let json = try! JSON(data: response.data!)
-                    if json != "" {
-                        let result = json["result"].arrayValue
-                        for i in result {
-                            self.events.append(Event(name: i[0].stringValue, date: i[1].intValue, place: i[2].stringValue, id: i[3].intValue))
-                        }
-                    }
-                    
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-        }
-    }
-    
     func confirmEmail(code: String, completion: @escaping () -> Void) {
         let id = UserDefaults.standard.integer(forKey: "id")
         print(id)
@@ -113,10 +83,56 @@ class NetworkService: ObservableObject {
         }
     }
     
-    func getSections(id: Int) {
-        AF.request(baseURL + "events/\(id)",
+}
+
+class NetworkService: ObservableObject {
+    var baseURL = "http://i-fan.herokuapp.com/"
+    
+    var events: [Event] = [Event(name: "СОЧИ - УРАЛ", date: 1598817600, place: "Стадион Фишт", id: 90)]
+//    var events: [Event] = []
+    init() {
+        getEvents()
+    }
+    
+    func getEvents() {
+        AF.request(baseURL + "events",
                    method: .get,
                    encoding: URLEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    let json = try! JSON(data: response.data!)
+                    if json != "" {
+                        let result = json["result"].arrayValue
+                        for i in result {
+                            self.events.append(Event(name: i[0].stringValue, date: i[1].intValue, place: i[2].stringValue, id: i[3].intValue))
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
+    }
+    
+    
+    
+    
+}
+
+class Sectors: ObservableObject {
+    var baseURL = "http://i-fan.herokuapp.com/"
+    var sectors: [Sector] = []
+    
+    init() {
+        getSections(id: 90)
+    }
+    
+    func getSections(id: Int) {
+        AF.request(baseURL + "events/\(id)",
+            method: .get,
+            encoding: URLEncoding.default)
             .validate(statusCode: 200..<300)
             .responseJSON { response in
                 switch response.result {
@@ -134,11 +150,17 @@ class NetworkService: ObservableObject {
                 }
         }
     }
+}
+
+class Places:  ObservableObject {
+    var baseURL = "http://i-fan.herokuapp.com/"
+    
+    var places: [Place] = []
     
     func getPlaces(event_id: Int, sector_id: Int) {
         AF.request(baseURL + "events/\(event_id)/\(sector_id)",
-                   method: .get,
-                   encoding: URLEncoding.default)
+            method: .get,
+            encoding: URLEncoding.default)
             .validate(statusCode: 200..<300)
             .responseJSON { response in
                 switch response.result {
@@ -149,7 +171,6 @@ class NetworkService: ObservableObject {
                         for i in result {
                             self.places.append(Place(row: i[0].intValue, place: i[1].intValue))
                         }
-                        print(self.places)
                     }
                     
                 case .failure(let error):
@@ -157,5 +178,6 @@ class NetworkService: ObservableObject {
                 }
         }
     }
+    
 }
 

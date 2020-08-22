@@ -59,10 +59,6 @@ struct MainView: View {
                     }
                 }
             }
-        }.onAppear {
-            if self.networkService.events.count == 0 {
-                self.networkService.getEvents()
-            }
         }
     }
 }

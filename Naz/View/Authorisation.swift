@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Authorisation: View {
-    @ObservedObject var networkService = NetworkService()
+    @ObservedObject var networkService = Auth()
     
     @State var signUp = false
     @State var user = ""
@@ -170,10 +170,11 @@ struct Authorisation: View {
                         Spacer()
                         
                         Button(action: {
-                            self.networkService.signUp(login: self.user, email: self.email, password: self.pass) {
-                                print("sign up")
-                                self.emailConfiramation = true
-                            }
+//                            self.networkService.signUp(login: self.user, email: self.email, password: self.pass) {
+//                                print("sign up")
+//                                self.emailConfiramation = true
+//                            }
+                            self.emailConfiramation = true
                         }) {
                             Text("Sign Up")
                                 .fontWeight(.bold)

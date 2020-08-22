@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MatchView: View {
-    @ObservedObject var networkService = NetworkService()
+    @ObservedObject var networkService = Sectors()
     @State var back = false
     @State var id = 0
     @State var sector = ""
@@ -72,7 +72,8 @@ struct MatchView: View {
                     }
                 }
             }
-        }.navigate(to: BottomMenu(), when: $back)
+        }
+        .navigate(to: BottomMenu(), when: $back)
     }
 }
 

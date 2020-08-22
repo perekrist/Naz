@@ -7,6 +7,7 @@ target 'Naz' do
 
   # Pods for Naz
   pod 'Alamofire'
-  pod 'SwiftyJSON' 
+  pod 'SwiftyJSON'
+  pod 'SVProgressHUD'
   
 end
