@@ -20,8 +20,11 @@ struct BottomMenu: View {
                 MainView(buyTicket: $buyTicket)
                     .opacity(self.index == 0 ? 1 : 0)
                 
-                AccountView()
+                Text("Создать акцию/инициативу")
                     .opacity(self.index == 1 ? 1 : 0)
+                
+                AccountView()
+                    .opacity(self.index == 2 ? 1 : 0)
             }
             
             HStack {
@@ -45,17 +48,38 @@ struct BottomMenu: View {
                     .background(self.index == 0 ? Colors.yellow : Color.clear)
                     .clipShape(Capsule())
                 }
-                
                 Spacer(minLength: 0)
                 Button(action: {
                     self.index = 1
                     
                 }) {
                     HStack(spacing: 6) {
-                        Image(systemName: "person")
+                        
+                        Image(systemName: "plus.app.fill")
                             .foregroundColor(self.index == 1 ? Colors.blue : .primary)
                         
                         if self.index == 1 {
+                            Text("Create")
+                                .foregroundColor(Colors.blue)
+                        }
+                        
+                    }
+                    .padding(.vertical, 10)
+                    .padding(.horizontal)
+                    .background(self.index == 1 ? Colors.yellow : Color.clear)
+                    .clipShape(Capsule())
+                }
+                
+                Spacer(minLength: 0)
+                Button(action: {
+                    self.index = 2
+                    
+                }) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "person")
+                            .foregroundColor(self.index == 2 ? Colors.blue : .primary)
+                        
+                        if self.index == 2 {
                             Text("Account")
                                 .foregroundColor(Colors.blue)
                         }
@@ -63,14 +87,14 @@ struct BottomMenu: View {
                     }
                     .padding(.vertical,10)
                     .padding(.horizontal)
-                    .background(self.index == 1 ? Colors.yellow : Color.clear)
+                    .background(self.index == 2 ? Colors.yellow : Color.clear)
                     .clipShape(Capsule())
                 }
             }
             .padding(.horizontal,25)
             .padding(.top)
-                .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 10 : UIApplication.shared.windows.first?.safeAreaInsets.bottom)
-                .shadow(color: Color.primary.opacity(0.08), radius: 5, x: 5, y: -5)
+            .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom == 0 ? 10 : UIApplication.shared.windows.first?.safeAreaInsets.bottom)
+            .shadow(color: Color.primary.opacity(0.08), radius: 5, x: 5, y: -5)
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigate(to: MatchView(), when: $buyTicket)

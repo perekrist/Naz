@@ -10,27 +10,38 @@ import SwiftUI
 
 struct MatchView: View {
     @ObservedObject var networkService = NetworkService()
+    @State var back = false
     
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Text("Секторы")
-                    .bold()
-                    .frame(width: UIScreen.main.bounds.width/3)
-                Spacer()
-                Text("Стоимость")
-                    .bold()
-                    .frame(width: UIScreen.main.bounds.width/3)
-                Spacer()
-                Text("Свободные места")
-                    .bold()
-                    .frame(width: UIScreen.main.bounds.width/3)
-                Spacer()
-            }.padding()
-                .frame(width: UIScreen.main.bounds.width)
-                .background(Colors.blue.edgesIgnoringSafeArea(.top))
-                .foregroundColor(.white)
+            VStack {
+                HStack {
+                    Button(action: {
+                        self.back.toggle()
+                    }) {
+                        Image(systemName: "arrow.left.square.fill")
+                            .foregroundColor(Colors.yellow)
+                    }.padding(.leading, 20)
+                    Spacer()
+                }
+                HStack {
+                    Spacer()
+                    Text("Секторы")
+                        .bold()
+                        .frame(width: UIScreen.main.bounds.width/3)
+                    Spacer()
+                    Text("Стоимость")
+                        .bold()
+                        .frame(width: UIScreen.main.bounds.width/3)
+                    Spacer()
+                    Text("Свободные места")
+                        .bold()
+                        .frame(width: UIScreen.main.bounds.width/3)
+                    Spacer()
+                }.padding()
+                    .frame(width: UIScreen.main.bounds.width)
+                    .foregroundColor(.white)
+            }.background(Colors.blue.edgesIgnoringSafeArea(.top))
             
             ScrollView {
                 ForEach(self.networkService.sectors, id: \.self) { sector in
@@ -51,7 +62,7 @@ struct MatchView: View {
                     }
                 }
             }
-        }
+        }.navigate(to: BottomMenu(), when: $back)
     }
 }
 
