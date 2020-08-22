@@ -20,6 +20,7 @@
 		CAFA140224F0E4E4001A0EDB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140124F0E4E4001A0EDB /* MainView.swift */; };
 		CAFA140424F0E512001A0EDB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140324F0E512001A0EDB /* Event.swift */; };
 		CAFA140624F0EBA8001A0EDB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140524F0EBA8001A0EDB /* Colors.swift */; };
+		CAFA140824F0ECEA001A0EDB /* Navigatoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140724F0ECEA001A0EDB /* Navigatoin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		CAFA140124F0E4E4001A0EDB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CAFA140324F0E512001A0EDB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		CAFA140524F0EBA8001A0EDB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		CAFA140724F0ECEA001A0EDB /* Navigatoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatoin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				CAFA13FF24F0DCE5001A0EDB /* NetworkingService.swift */,
 				CAFA140324F0E512001A0EDB /* Event.swift */,
 				CAFA140524F0EBA8001A0EDB /* Colors.swift */,
+				CAFA140724F0ECEA001A0EDB /* Navigatoin.swift */,
 			);
 			path = Naz;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				CAFA140024F0DCE5001A0EDB /* NetworkingService.swift in Sources */,
 				CAFA13FC24F0DA9C001A0EDB /* Authorisation.swift in Sources */,
 				CAFA13E224F0CF13001A0EDB /* ContentView.swift in Sources */,
+				CAFA140824F0ECEA001A0EDB /* Navigatoin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
