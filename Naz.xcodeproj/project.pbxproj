@@ -94,16 +94,14 @@
 		CAFA13DC24F0CF13001A0EDB /* Naz */ = {
 			isa = PBXGroup;
 			children = (
+				CAFA140924F0EE09001A0EDB /* View */,
 				CAFA13DD24F0CF13001A0EDB /* AppDelegate.swift */,
 				CAFA13DF24F0CF13001A0EDB /* SceneDelegate.swift */,
 				CAFA13E324F0CF1A001A0EDB /* Assets.xcassets */,
 				CAFA13E824F0CF1A001A0EDB /* LaunchScreen.storyboard */,
 				CAFA13EB24F0CF1A001A0EDB /* Info.plist */,
 				CAFA13E524F0CF1A001A0EDB /* Preview Content */,
-				CAFA13E124F0CF13001A0EDB /* ContentView.swift */,
-				CAFA13FB24F0DA9C001A0EDB /* Authorisation.swift */,
 				CAFA13FD24F0DABC001A0EDB /* CShape.swift */,
-				CAFA140124F0E4E4001A0EDB /* MainView.swift */,
 				CAFA13FF24F0DCE5001A0EDB /* NetworkingService.swift */,
 				CAFA140324F0E512001A0EDB /* Event.swift */,
 				CAFA140524F0EBA8001A0EDB /* Colors.swift */,
@@ -118,6 +116,16 @@
 				CAFA13E624F0CF1A001A0EDB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CAFA140924F0EE09001A0EDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAFA13FB24F0DA9C001A0EDB /* Authorisation.swift */,
+				CAFA140124F0E4E4001A0EDB /* MainView.swift */,
+				CAFA13E124F0CF13001A0EDB /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
