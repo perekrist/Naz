@@ -28,7 +28,7 @@ class NetworkService: ObservableObject {
                    parameters: parameters,
                    encoding: URLEncoding.default)
             .validate(statusCode: 200..<300)
-            .responseJSON { response in
+            .response { response in
                 switch response.result {
                 case .success:
                     print(response)
@@ -54,11 +54,11 @@ class NetworkService: ObservableObject {
                    parameters: parameters,
                    encoding: URLEncoding.default)
             .validate(statusCode: 200..<300)
-            .responseJSON { response in
+            .response { response in
                 switch response.result {
                 case .success:
                     print(response)
-                    UserDefaults.standard.set(true, forKey: "isLogIned")
+                    completion()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -80,8 +80,32 @@ class NetworkService: ObservableObject {
                         for i in result {
                             self.events.append(Event(name: i[0].stringValue, date: i[1].intValue, place: i[2].stringValue, id: i[3].intValue))
                         }
+                        print(self.events.count)
                     }
                     
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
+    }
+    
+    func confirmEmail(code: String, completion: @escaping () -> Void) {
+        let id = UserDefaults.standard.integer(forKey: "id")
+        print(id)
+        let parameters: Parameters = ["code": code,
+                                      "id": id]
+        
+        AF.request(baseURL + "sign-up/code",
+                   method: .post,
+                   parameters: parameters,
+                   encoding: URLEncoding.default)
+            .validate(statusCode: 200..<300)
+            .response { response in
+                switch response.result {
+                case .success:
+                    print(response)
+                    UserDefaults.standard.set(true, forKey: "isLogIned")
+                    completion()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

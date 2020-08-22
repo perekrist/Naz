@@ -20,7 +20,7 @@ struct BottomMenu: View {
                 MainView(buyTicket: $buyTicket)
                     .opacity(self.index == 0 ? 1 : 0)
                 
-                Text("Account")
+                AccountView()
                     .opacity(self.index == 1 ? 1 : 0)
             }
             

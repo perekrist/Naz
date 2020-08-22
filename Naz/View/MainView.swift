@@ -17,6 +17,7 @@ struct MainView: View {
         ZStack {
             Colors.grey.edgesIgnoringSafeArea(.all)
             VStack {
+                Text("\(self.networkService.events.count)")
                 if self.networkService.events.count != 0 {
                     VStack {
                         Text(networkService.events[0].name)
