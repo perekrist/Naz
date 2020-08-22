@@ -72,7 +72,7 @@ struct MatchView: View {
                         self.sector = sector.name
                         self.show.toggle()
                     }.sheet(isPresented: self.$show) {
-                        PlaceView(id: self.id, sector: self.sector)
+                        PlaceView(sector_id: self.id, sector: self.sector)
                     }
                 }
             }

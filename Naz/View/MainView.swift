@@ -7,11 +7,13 @@
 //
 
 import SwiftUI
+import SVProgressHUD
 
 struct MainView: View {
-    @State var news: [String] = ["Новый игрок"]
+    @State var performances: [Performance] = []
     @Binding var buyTicket: Bool
     @ObservedObject var networkService = NetworkService()
+    @ObservedObject var perfomarmance = Perfomarmance()
     
     var body: some View {
         ZStack {
@@ -44,21 +46,55 @@ struct MainView: View {
                     .frame(width: UIScreen.main.bounds.width - 30)
                     .background(Color.white)
                     .cornerRadius(20)
-                
-                
-                
-                ScrollView {
-                    VStack {
-                        Text("Список инициатив пуст.")
-                            .foregroundColor(Colors.darkGrey)
-                            .font(.system(size: 30))
-                        
-                        Text("Вы можете создать инициативу на странице создания инициатив.")
-                            .foregroundColor(Colors.darkGrey)
-                        
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            SVProgressHUD.show()
+                            if self.perfomarmance.performances.count == 0 {
+                                self.perfomarmance.getPerformances {
+                                    self.performances = self.perfomarmance.performances
+                                    SVProgressHUD.dismiss()
+                                }
+                            } else {
+                                self.performances = self.perfomarmance.performances
+                                SVProgressHUD.dismiss()
+                            }
+                        }) {
+                            Image(systemName: "arrow.2.circlepath")
+                                .padding()
+                                .foregroundColor(Colors.blue)
+                                .font(.system(size: 40))
+                        }
                     }
+                    if self.performances.count == 0 {
+                        VStack {
+                            Text("Список инициатив пуст.")
+                                .foregroundColor(Colors.darkGrey)
+                                .font(.system(size: 30))
+                            
+                            Text("Вы можете создать инициативу на странице создания инициатив.")
+                                .foregroundColor(Colors.darkGrey)
+                            
+                        }
+                    } else {
+                        ForEach(self.performances, id: \.self) { perf in
+                            HStack {
+                                Text(perf.action)
+                                    .padding()
+                                    .foregroundColor(Colors.blue)
+                                Text("\(Date(timeIntervalSince1970: TimeInterval(perf.timestamp)))")
+                                    .padding()
+                                    .foregroundColor(Colors.blue)
+                            }.background(Color.white)
+                                .cornerRadius(20)
+                                .padding()
+                        }
+                    }
+                    Spacer()
                 }
             }
+            
         }
     }
 }

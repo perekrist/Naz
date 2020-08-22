@@ -10,10 +10,16 @@ import SwiftUI
 import SVProgressHUD
 
 struct PlaceView: View {
-    @State var id: Int
+    @State var sector_id: Int
+    
     @ObservedObject var networkService = Places()
+    @ObservedObject var reserveTicket = ReserveTicket()
+    
     @State var sector: String
     @State private var isShowing = false
+    
+    @State var row = 0
+    @State var place = 0
     
     @State var showConfirmation = false
     
@@ -36,7 +42,7 @@ struct PlaceView: View {
                         Button(action: {
                             SVProgressHUD.setOffsetFromCenter(UIOffset(horizontal: UIScreen.main.bounds.width/2, vertical: UIScreen.main.bounds.height/2))
                             SVProgressHUD.show()
-                            self.networkService.getPlaces(event_id: 90, sector_id: self.id, completion: {
+                            self.networkService.getPlaces(event_id: 90, sector_id: self.sector_id, completion: {
                                 self.places = self.networkService.places
                                 SVProgressHUD.dismiss()
                             })
@@ -56,7 +62,8 @@ struct PlaceView: View {
                                 .padding()
                             Spacer()
                             Button(action: {
-                                print(place.place)
+                                self.row = place.row
+                                self.place = place.place
                                 self.showConfirmation.toggle()
                             }) {
                                 Text("Купить")
@@ -73,7 +80,7 @@ struct PlaceView: View {
                 ZStack {
                     Colors.grey.edgesIgnoringSafeArea(.all).opacity(0.5)
                     VStack {
-                        Text("Забронировать билет")
+                        Text("Забронировать место \(self.row), ряд: \(self.place) в \(self.sector)")
                             .font(.system(size: 20))
                             .foregroundColor(Colors.blue)
                         Divider()
@@ -87,7 +94,9 @@ struct PlaceView: View {
                             }.padding()
                             Divider().padding()
                             Button(action: {
-                                
+                                self.reserveTicket.reserve(event_id: 90, sector_id: self.sector_id, row: self.row, place: self.place) {
+                                    self.showConfirmation = false
+                                }
                             }) {
                                 Text("ДА")
                                     .font(.system(size: 30))

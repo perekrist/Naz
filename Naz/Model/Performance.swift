@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Performance {
+struct Performance: Hashable {
     var timestamp: Int
     var action: String
 }

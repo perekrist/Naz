@@ -189,20 +189,21 @@ class Places:  ObservableObject {
 class ReserveTicket:  ObservableObject {
     var baseURL = "http://i-fan.herokuapp.com/"
     
-    func reserbe(event_id: Int, sector_id: Int, row: Int, place: Int, completion: @escaping () -> Void) {
+    func reserve(event_id: Int, sector_id: Int, row: Int, place: Int, completion: @escaping () -> Void) {
         let token = UserDefaults.standard.string(forKey: "token")
         
         let parameters: Parameters = ["game": event_id,
                                       "sector": sector_id,
                                       "row": row,
-                                      "place": place,
-                                      "token": token]
+                                      "place": place
+        ]
         
         
-        AF.request(baseURL + "/ticket/new",
+        AF.request(baseURL + "ticket/new",
                    method: .post,
                    parameters: parameters,
-                   encoding: URLEncoding.default)
+                   encoding: URLEncoding.default,
+                   headers: ["Authorization": "Bearer \(token!)"])
             .validate(statusCode: 200..<300)
             .responseJSON { response in
                 switch response.result {
@@ -221,14 +222,19 @@ class Perfomarmance: ObservableObject {
     
     var performances: [Performance] = []
     
-    func getPerformances() {
+    init() {
+        getPerformances {
+            print("perfomarmances")
+        }
+    }
+    
+    func getPerformances(completion: @escaping () -> Void) {
         let token = UserDefaults.standard.string(forKey: "token")
         
-        let parameters: Parameters = ["token": token]
-        
         AF.request(baseURL + "performance",
-            method: .get,
-            encoding: URLEncoding.default)
+                   method: .get,
+                   encoding: URLEncoding.default,
+                   headers: ["Authorization": "Bearer \(token!)"])
             .validate(statusCode: 200..<300)
             .responseJSON { response in
                 switch response.result {
@@ -237,9 +243,8 @@ class Perfomarmance: ObservableObject {
                     if json != "" {
                         self.performances.removeAll()
                         let result = json["result"].arrayValue
-                        for i in result {
-                            self.performances.append(Performance(timestamp: i[0].intValue, action: i[1].stringValue))
-                        }
+                        
+                        self.performances.append(Performance(timestamp: result[0].intValue, action: result[1].stringValue))
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
