@@ -27,6 +27,7 @@
 		CAFA141224F10CC1001A0EDB /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141124F10CC1001A0EDB /* AccountView.swift */; };
 		CAFA141424F12330001A0EDB /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141324F12330001A0EDB /* Place.swift */; };
 		CAFA141624F125D3001A0EDB /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141524F125D3001A0EDB /* PlaceView.swift */; };
+		CAFA141824F157D5001A0EDB /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141724F157D5001A0EDB /* Performance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		CAFA141124F10CC1001A0EDB /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		CAFA141324F12330001A0EDB /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		CAFA141524F125D3001A0EDB /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
+		CAFA141724F157D5001A0EDB /* Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				CAFA140324F0E512001A0EDB /* Event.swift */,
 				CAFA140F24F0FE2E001A0EDB /* Sector.swift */,
 				CAFA141324F12330001A0EDB /* Place.swift */,
+				CAFA141724F157D5001A0EDB /* Performance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				CAFA140B24F0F5DE001A0EDB /* BottomMenu.swift in Sources */,
 				CAFA13FC24F0DA9C001A0EDB /* Authorisation.swift in Sources */,
 				CAFA13E224F0CF13001A0EDB /* ContentView.swift in Sources */,
+				CAFA141824F157D5001A0EDB /* Performance.swift in Sources */,
 				CAFA140D24F0FE04001A0EDB /* MatchView.swift in Sources */,
 				CAFA140824F0ECEA001A0EDB /* Navigatoin.swift in Sources */,
 			);

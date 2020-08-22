@@ -196,7 +196,7 @@ class ReserveTicket:  ObservableObject {
         
         
         AF.request(baseURL + "/ticket/new",
-                   method: .get,
+                   method: .post,
                    parameters: parameters,
                    encoding: URLEncoding.default)
             .validate(statusCode: 200..<300)
@@ -210,5 +210,38 @@ class ReserveTicket:  ObservableObject {
                 }
         }
     }
+}
+
+class Perfomarmance: ObservableObject {
+    var baseURL = "http://i-fan.herokuapp.com/"
+    
+    var performances: [Performance] = []
+    
+    func getPerformances() {
+        let token = UserDefaults.standard.string(forKey: "token")
+        
+        let parameters: Parameters = ["token": token]
+        
+        AF.request(baseURL + "performance",
+            method: .get,
+            encoding: URLEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    let json = try! JSON(data: response.data!)
+                    if json != "" {
+                        self.performances.removeAll()
+                        let result = json["result"].arrayValue
+                        for i in result {
+                            self.performances.append(Performance(timestamp: i[0].intValue, action: i[1].stringValue))
+                        }
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
+        
+    }   
 }
 
