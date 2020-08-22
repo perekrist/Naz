@@ -9,10 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isLogIned = UserDefaults.standard.value(forKey: "isLogIned") as? Bool ?? true
+    
     var body: some View {
-        Home()
-            .edgesIgnoringSafeArea(.all)
-            .statusBar(hidden: true)
+        VStack {
+            if !isLogIned {
+                Authorisation()
+                    .edgesIgnoringSafeArea(.all)
+                    .statusBar(hidden: true)
+            }
+            
+            if isLogIned {
+                MainView()
+            }
+        }
     }
 }
 

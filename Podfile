@@ -8,4 +8,5 @@ target 'Naz' do
   # Pods for Naz
   pod 'Alamofire'
   pod 'SwiftyJSON' 
+  
 end
