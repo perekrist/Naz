@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3287790B7C410AA872F24D57 /* Pods_Naz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABBE1DE184FAE488240E898 /* Pods_Naz.framework */; };
 		CAFA13DE24F0CF13001A0EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA13DD24F0CF13001A0EDB /* AppDelegate.swift */; };
 		CAFA13E024F0CF13001A0EDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA13DF24F0CF13001A0EDB /* SceneDelegate.swift */; };
 		CAFA13E224F0CF13001A0EDB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA13E124F0CF13001A0EDB /* ContentView.swift */; };
@@ -15,9 +16,13 @@
 		CAFA13EA24F0CF1A001A0EDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFA13E824F0CF1A001A0EDB /* LaunchScreen.storyboard */; };
 		CAFA13FC24F0DA9C001A0EDB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA13FB24F0DA9C001A0EDB /* Home.swift */; };
 		CAFA13FE24F0DABD001A0EDB /* CShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA13FD24F0DABC001A0EDB /* CShape.swift */; };
+		CAFA140024F0DCE5001A0EDB /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA13FF24F0DCE5001A0EDB /* NetworkingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5ABBE1DE184FAE488240E898 /* Pods_Naz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		609403F0F2533F2ED34EE4CE /* Pods-Naz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naz.debug.xcconfig"; path = "Target Support Files/Pods-Naz/Pods-Naz.debug.xcconfig"; sourceTree = "<group>"; };
+		A10CBF75642085845DF4D7ED /* Pods-Naz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naz.release.xcconfig"; path = "Target Support Files/Pods-Naz/Pods-Naz.release.xcconfig"; sourceTree = "<group>"; };
 		CAFA13DA24F0CF13001A0EDB /* Naz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Naz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFA13DD24F0CF13001A0EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAFA13DF24F0CF13001A0EDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		CAFA13EB24F0CF1A001A0EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFA13FB24F0DA9C001A0EDB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		CAFA13FD24F0DABC001A0EDB /* CShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CShape.swift; sourceTree = "<group>"; };
+		CAFA13FF24F0DCE5001A0EDB /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3287790B7C410AA872F24D57 /* Pods_Naz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6AA9D729528C212552918303 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5ABBE1DE184FAE488240E898 /* Pods_Naz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70084D2C8CB6B99B82B1B498 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				609403F0F2533F2ED34EE4CE /* Pods-Naz.debug.xcconfig */,
+				A10CBF75642085845DF4D7ED /* Pods-Naz.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CAFA13D124F0CF13001A0EDB = {
 			isa = PBXGroup;
 			children = (
 				CAFA13DC24F0CF13001A0EDB /* Naz */,
 				CAFA13DB24F0CF13001A0EDB /* Products */,
+				70084D2C8CB6B99B82B1B498 /* Pods */,
+				6AA9D729528C212552918303 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +96,7 @@
 				CAFA13E124F0CF13001A0EDB /* ContentView.swift */,
 				CAFA13FB24F0DA9C001A0EDB /* Home.swift */,
 				CAFA13FD24F0DABC001A0EDB /* CShape.swift */,
+				CAFA13FF24F0DCE5001A0EDB /* NetworkingService.swift */,
 			);
 			path = Naz;
 			sourceTree = "<group>";
@@ -88,9 +116,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAFA13EE24F0CF1A001A0EDB /* Build configuration list for PBXNativeTarget "Naz" */;
 			buildPhases = (
+				7D1AED8E875C39AA5EC55DCC /* [CP] Check Pods Manifest.lock */,
 				CAFA13D624F0CF13001A0EDB /* Sources */,
 				CAFA13D724F0CF13001A0EDB /* Frameworks */,
 				CAFA13D824F0CF13001A0EDB /* Resources */,
+				4A276ACFAD898BDD33D11F57 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,6 +177,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A276ACFAD898BDD33D11F57 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naz/Pods-Naz-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naz/Pods-Naz-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naz/Pods-Naz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D1AED8E875C39AA5EC55DCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Naz-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CAFA13D624F0CF13001A0EDB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -155,6 +227,7 @@
 				CAFA13DE24F0CF13001A0EDB /* AppDelegate.swift in Sources */,
 				CAFA13E024F0CF13001A0EDB /* SceneDelegate.swift in Sources */,
 				CAFA13FE24F0DABD001A0EDB /* CShape.swift in Sources */,
+				CAFA140024F0DCE5001A0EDB /* NetworkingService.swift in Sources */,
 				CAFA13FC24F0DA9C001A0EDB /* Home.swift in Sources */,
 				CAFA13E224F0CF13001A0EDB /* ContentView.swift in Sources */,
 			);
@@ -290,6 +363,7 @@
 		};
 		CAFA13EF24F0CF1A001A0EDB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 609403F0F2533F2ED34EE4CE /* Pods-Naz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,6 +384,7 @@
 		};
 		CAFA13F024F0CF1A001A0EDB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A10CBF75642085845DF4D7ED /* Pods-Naz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

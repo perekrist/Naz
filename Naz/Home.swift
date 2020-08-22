@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct Home: View {
+    @ObservedObject var networkService = NetworkService()
     
     @State var signUp = false
     @State var user = ""
+    @State var email = ""
     @State var pass = ""
     @State var rePass = ""
     
@@ -126,6 +128,16 @@ struct Home: View {
                     Divider()
                         .background(colorMain.opacity(0.5))
                 }
+                Text("Email")
+                    .foregroundColor(colorMain)
+                    .padding(.top,10)
+                
+                VStack {
+                    TextField("Email", text: $email)
+                    
+                    Divider()
+                        .background(colorMain.opacity(0.5))
+                }
                 Text("Password")
                     .foregroundColor(colorMain)
                     .padding(.top,10)
@@ -152,7 +164,9 @@ struct Home: View {
                     Spacer()
                                         
                     Button(action: {
-                        
+                        self.networkService.signUp(login: self.user, email: self.email, password: self.pass) {
+                            print("hello")
+                        }
                     }) {
                         Text("Sign Up")
                             .fontWeight(.bold)
@@ -167,7 +181,7 @@ struct Home: View {
                 }
                 .padding(.top)
                 
-                Spacer(minLength: 0)
+//                Spacer(minLength: 0)
             }
             .padding(.top,(UIApplication.shared.windows.first?.safeAreaInsets.top)! + 50)
             .padding()
