@@ -16,9 +16,9 @@ class NetworkService: ObservableObject {
     func signIn(login: String, password: String, completion: @escaping () -> Void) {
         
         let parameters: Parameters = ["login": login,
-                                      "password": password]
+                                      "pwd": password]
         
-        AF.request(baseURL + "signin",
+        AF.request(baseURL + "sign-in",
                    method: .post,
                    parameters: parameters,
                    encoding: URLEncoding.default)

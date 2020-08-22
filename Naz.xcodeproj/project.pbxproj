@@ -22,6 +22,8 @@
 		CAFA140624F0EBA8001A0EDB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140524F0EBA8001A0EDB /* Colors.swift */; };
 		CAFA140824F0ECEA001A0EDB /* Navigatoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140724F0ECEA001A0EDB /* Navigatoin.swift */; };
 		CAFA140B24F0F5DE001A0EDB /* BottomMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140A24F0F5DE001A0EDB /* BottomMenu.swift */; };
+		CAFA140D24F0FE04001A0EDB /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140C24F0FE04001A0EDB /* MatchView.swift */; };
+		CAFA141024F0FE2E001A0EDB /* Sector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA140F24F0FE2E001A0EDB /* Sector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		CAFA140524F0EBA8001A0EDB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		CAFA140724F0ECEA001A0EDB /* Navigatoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatoin.swift; sourceTree = "<group>"; };
 		CAFA140A24F0F5DE001A0EDB /* BottomMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMenu.swift; sourceTree = "<group>"; };
+		CAFA140C24F0FE04001A0EDB /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
+		CAFA140F24F0FE2E001A0EDB /* Sector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 		CAFA13DC24F0CF13001A0EDB /* Naz */ = {
 			isa = PBXGroup;
 			children = (
+				CAFA140E24F0FE17001A0EDB /* Model */,
 				CAFA140924F0EE09001A0EDB /* View */,
 				CAFA13DD24F0CF13001A0EDB /* AppDelegate.swift */,
 				CAFA13DF24F0CF13001A0EDB /* SceneDelegate.swift */,
@@ -105,7 +110,6 @@
 				CAFA13E524F0CF1A001A0EDB /* Preview Content */,
 				CAFA13FD24F0DABC001A0EDB /* CShape.swift */,
 				CAFA13FF24F0DCE5001A0EDB /* NetworkingService.swift */,
-				CAFA140324F0E512001A0EDB /* Event.swift */,
 				CAFA140524F0EBA8001A0EDB /* Colors.swift */,
 				CAFA140724F0ECEA001A0EDB /* Navigatoin.swift */,
 			);
@@ -127,8 +131,18 @@
 				CAFA140124F0E4E4001A0EDB /* MainView.swift */,
 				CAFA13E124F0CF13001A0EDB /* ContentView.swift */,
 				CAFA140A24F0F5DE001A0EDB /* BottomMenu.swift */,
+				CAFA140C24F0FE04001A0EDB /* MatchView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CAFA140E24F0FE17001A0EDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAFA140324F0E512001A0EDB /* Event.swift */,
+				CAFA140F24F0FE2E001A0EDB /* Sector.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,10 +266,12 @@
 				CAFA140224F0E4E4001A0EDB /* MainView.swift in Sources */,
 				CAFA13E024F0CF13001A0EDB /* SceneDelegate.swift in Sources */,
 				CAFA13FE24F0DABD001A0EDB /* CShape.swift in Sources */,
+				CAFA141024F0FE2E001A0EDB /* Sector.swift in Sources */,
 				CAFA140024F0DCE5001A0EDB /* NetworkingService.swift in Sources */,
 				CAFA140B24F0F5DE001A0EDB /* BottomMenu.swift in Sources */,
 				CAFA13FC24F0DA9C001A0EDB /* Authorisation.swift in Sources */,
 				CAFA13E224F0CF13001A0EDB /* ContentView.swift in Sources */,
+				CAFA140D24F0FE04001A0EDB /* MatchView.swift in Sources */,
 				CAFA140824F0ECEA001A0EDB /* Navigatoin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
