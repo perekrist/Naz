@@ -23,15 +23,7 @@ class NetworkService: ObservableObject {
                    parameters: parameters,
                    encoding: URLEncoding.default).responseData { (data) in
                     
-                    if data.data != nil {
-                        let json = try! JSON(data: data.data!)
-                        print(json)
-                        if json != "" {
-                            UserDefaults.standard.set(true, forKey: "isLogIned")
-                            completion()
-                        }
-                    }
-                    
+                    UserDefaults.standard.set(true, forKey: "isLogIned")
         }
         
     }
@@ -45,40 +37,13 @@ class NetworkService: ObservableObject {
                                       "pwd": password,
                                       "id": id]
         
-//        AF.request(baseURL + "sign-up",
-//                   method: .post,
-//                   parameters: parameters,
-//                   encoding: URLEncoding.default).responseData { (data) in
-//
-//                    print(data.data)
-//                    if data.data != nil {
-//                        let json = try! JSON(data: data.data!)
-//                        print(json)
-//                        if json != "" {
-//                            UserDefaults.standard.set(true, forKey: "isLogIned")
-//                            completion()
-//                        }
-//                    }
-//
-//        }
         AF.request(baseURL + "sign-up",
-        method: .post,
-        parameters: parameters,
-        encoding: URLEncoding.default)
-        .validate().responseJSON() { response in
-            switch response.result {
-            case .failure:
-                if let statusCode = response.response?.statusCode {
-                    if statusCode == 409 {
-                        // handle 409 specific error here, if you want
-                    }
-                }
-            case .success(let value):
-                // handle success here
-                print(value)
-            }
+                   method: .post,
+                   parameters: parameters,
+                   encoding: URLEncoding.default).responseData { (data) in
+                    
+                    UserDefaults.standard.set(true, forKey: "isLogIned")
         }
-        
     }
 }
 

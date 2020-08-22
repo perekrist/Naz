@@ -12,6 +12,7 @@ struct MainView: View {
     @State var event: Event = Event(name: "СОЧИ - УРАЛ", date: 2334, place: "Стадион Фишт")
     
     @State var news: [String] = ["Новый игрок"]
+    @State var buyTicket = false
     
     var body: some View {
         ZStack {
@@ -21,6 +22,7 @@ struct MainView: View {
                     Text(event.name)
                         .font(.system(size: 40))
                         .bold()
+                        .foregroundColor(Colors.blue)
                     
                     Text("\(event.date)")
                         .font(.system(size: 30))
@@ -29,14 +31,15 @@ struct MainView: View {
                         .font(.system(size: 20))
                     
                     Button(action: {
-                        
+                        self.buyTicket.toggle()
                     }) {
                         Text("Купить билет")
                             .padding(15)
                             .foregroundColor(Colors.blue)
                     }
+                .frame(width: UIScreen.main.bounds.width - 60)
                     .background(Colors.yellow)
-                    .cornerRadius(20)
+                    .cornerRadius(15)
                     .padding(.top, 10)
                 }.padding()
                     .frame(width: UIScreen.main.bounds.width - 30)
