@@ -28,6 +28,7 @@ class Auth: ObservableObject {
                 switch response.result {
                 case .success:
                     print(response)
+                    
                     UserDefaults.standard.set(true, forKey: "isLogIned")
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -90,7 +91,7 @@ class NetworkService: ObservableObject {
     var baseURL = "http://i-fan.herokuapp.com/"
     
     var events: [Event] = [Event(name: "СОЧИ - УРАЛ", date: 1598817600, place: "Стадион Фишт", id: 90)]
-//    var events: [Event] = []
+    //    var events: [Event] = []
     init() {
         getEvents()
     }
@@ -179,6 +180,35 @@ class Places:  ObservableObject {
                 }
         }
     }
+}
+
+class ReserveTicket:  ObservableObject {
+    var baseURL = "http://i-fan.herokuapp.com/"
     
+    func reserbe(event_id: Int, sector_id: Int, row: Int, place: Int, completion: @escaping () -> Void) {
+        let token = UserDefaults.standard.string(forKey: "token")
+        
+        let parameters: Parameters = ["game": event_id,
+                                      "sector": sector_id,
+                                      "row": row,
+                                      "place": place,
+                                      "token": token]
+        
+        
+        AF.request(baseURL + "/ticket/new",
+                   method: .get,
+                   parameters: parameters,
+                   encoding: URLEncoding.default)
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    print(response.result)
+                    completion()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
+    }
 }
 

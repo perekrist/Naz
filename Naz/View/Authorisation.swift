@@ -170,11 +170,10 @@ struct Authorisation: View {
                         Spacer()
                         
                         Button(action: {
-//                            self.networkService.signUp(login: self.user, email: self.email, password: self.pass) {
-//                                print("sign up")
-//                                self.emailConfiramation = true
-//                            }
-                            self.emailConfiramation = true
+                            self.networkService.signUp(login: self.user, email: self.email, password: self.pass) {
+                                print("sign up")
+                                self.emailConfiramation = true
+                            }
                         }) {
                             Text("Sign Up")
                                 .fontWeight(.bold)
@@ -215,7 +214,7 @@ struct Authorisation: View {
                                 .frame(width: UIScreen.main.bounds.width - 80)
                         }.padding()
                             .background(Colors.blue)
-                            .foregroundColor(Colors.yellow)
+                            .foregroundColor(Color.white)
                             .cornerRadius(20)
                     }.padding()
                         .background(Color.white)
