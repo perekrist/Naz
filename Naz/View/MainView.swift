@@ -12,7 +12,7 @@ struct MainView: View {
     @State var event: Event = Event(name: "СОЧИ - УРАЛ", date: 2334, place: "Стадион Фишт")
     
     @State var news: [String] = ["Новый игрок"]
-    @State var buyTicket = false
+    @Binding var buyTicket: Bool
     
     var body: some View {
         ZStack {
@@ -50,18 +50,10 @@ struct MainView: View {
                 ScrollView {
                     VStack {
                         Text("1")
-                        Text("1")
-                        Text("1")
-                        Text("1")
                     }
                 }
             }
+            
         }
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
     }
 }
