@@ -9,5 +9,6 @@ target 'Naz' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'SVProgressHUD'
+ pod 'SwiftUIRefresh'
   
 end

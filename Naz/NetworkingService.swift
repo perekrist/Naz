@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class Auth: ObservableObject {
     var baseURL = "http://i-fan.herokuapp.com/"
@@ -116,9 +117,6 @@ class NetworkService: ObservableObject {
         }
     }
     
-    
-    
-    
 }
 
 class Sectors: ObservableObject {
@@ -126,10 +124,12 @@ class Sectors: ObservableObject {
     var sectors: [Sector] = []
     
     init() {
-        getSections(id: 90)
+        getSections(id: 90, completion: {
+            print("sectors")
+        })
     }
     
-    func getSections(id: Int) {
+    func getSections(id: Int, completion: @escaping () -> Void) {
         AF.request(baseURL + "events/\(id)",
             method: .get,
             encoding: URLEncoding.default)
@@ -144,7 +144,7 @@ class Sectors: ObservableObject {
                             self.sectors.append(Sector(name: i[0].stringValue, cost: i[1].doubleValue, freePlaces: i[2].intValue, id: i[3].intValue))
                         }
                     }
-                    
+                    completion()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -157,7 +157,7 @@ class Places:  ObservableObject {
     
     var places: [Place] = []
     
-    func getPlaces(event_id: Int, sector_id: Int) {
+    func getPlaces(event_id: Int, sector_id: Int, completion: @escaping () -> Void) {
         AF.request(baseURL + "events/\(event_id)/\(sector_id)",
             method: .get,
             encoding: URLEncoding.default)
@@ -167,12 +167,13 @@ class Places:  ObservableObject {
                 case .success:
                     let json = try! JSON(data: response.data!)
                     if json != "" {
+                        self.places.removeAll()
                         let result = json["result"].arrayValue
                         for i in result {
                             self.places.append(Place(row: i[0].intValue, place: i[1].intValue))
                         }
                     }
-                    
+                    completion()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

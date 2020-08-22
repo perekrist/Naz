@@ -1,24 +1,32 @@
 PODS:
   - Alamofire (5.0.5)
+  - Introspect (0.1.0)
   - SVProgressHUD (2.2.5)
+  - SwiftUIRefresh (0.0.3):
+    - Introspect (~> 0.1.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - SVProgressHUD
+  - SwiftUIRefresh
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Introspect
     - SVProgressHUD
+    - SwiftUIRefresh
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  Introspect: ad32f2b7b9e7ac2c008b9dfec3d5325fbd3660fa
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftUIRefresh: ca6ae2718d25aad5dd68bbf5d2ae36ef6ade98bf
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: adf06a0ca850f9674fe019274898fdead73c67a3
+PODFILE CHECKSUM: c8cdc2fb28d4dd7770957378e3a448471dd9c45a
 
 COCOAPODS: 1.9.1

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SVProgressHUD
 
 struct MatchView: View {
     @ObservedObject var networkService = Sectors()
@@ -15,6 +16,8 @@ struct MatchView: View {
     @State var sector = ""
     
     @State var show = false
+    
+    @State private var isShowing = false
     
     var body: some View {
         VStack {
@@ -25,7 +28,7 @@ struct MatchView: View {
                     }) {
                         Image(systemName: "arrow.left.square.fill")
                             .foregroundColor(Colors.yellow)
-                    }.padding(.leading, 20)
+                    }.padding(.leading, 60)
                     Spacer()
                 }
                 HStack {
@@ -63,7 +66,8 @@ struct MatchView: View {
                             Spacer()
                         }.padding()
                         Divider()
-                    }.onTapGesture {
+                    }
+                    .onTapGesture {
                         self.id = sector.id
                         self.sector = sector.name
                         self.show.toggle()
@@ -74,6 +78,7 @@ struct MatchView: View {
             }
         }
         .navigate(to: BottomMenu(), when: $back)
+        
     }
 }
 
