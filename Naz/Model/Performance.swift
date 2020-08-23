@@ -11,4 +11,5 @@ import Foundation
 struct Performance: Hashable {
     var timestamp: Int
     var action: String
+    var what: String?
 }

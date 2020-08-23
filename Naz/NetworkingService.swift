@@ -241,10 +241,12 @@ class Perfomarmance: ObservableObject {
                 case .success:
                     let json = try! JSON(data: response.data!)
                     if json != "" {
+                        print(json)
                         self.performances.removeAll()
                         let result = json["result"].arrayValue
-                        
-                        self.performances.append(Performance(timestamp: result[0].intValue, action: result[1].stringValue))
+                        for i in result {
+                            self.performances.append(Performance(timestamp: i["when"].intValue, action: i["cmd"].stringValue, what: i["what"].stringValue))
+                        }
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
