@@ -11,4 +11,5 @@ import Foundation
 struct Place: Hashable {
     var row: Int
     var place: Int
+    var sector: Int?
 }

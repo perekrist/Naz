@@ -254,3 +254,44 @@ class Perfomarmance: ObservableObject {
     }   
 }
 
+class Profile: ObservableObject {
+    var baseURL = "http://i-fan.herokuapp.com/"
+    
+    var places: [Place] = []
+    var email = ""
+    var login = ""
+    
+    init() {
+        whoAmI {
+            print("no one")
+        }
+    }
+    
+    func whoAmI(completion: @escaping () -> Void) {
+        let token = UserDefaults.standard.string(forKey: "token")
+        
+        AF.request(baseURL + "whoami",
+                   method: .get,
+                   encoding: URLEncoding.default,
+                   headers: ["Authorization": "Bearer \(token!)"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    let json = try! JSON(data: response.data!)
+                    self.places.removeAll()
+                    self.email = json["email"].stringValue
+                    self.login = json["login"].stringValue
+                    let where_ = json["where"].arrayValue
+                    for i in where_ {
+                        self.places.append(Place(row: i["trow"].intValue, place: i["place"].intValue, sector: i["sector"].intValue))
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+        }
+        
+    }
+    
+}
+
