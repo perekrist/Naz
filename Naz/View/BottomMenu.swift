@@ -11,13 +11,14 @@ import SwiftUI
 struct BottomMenu: View {
     @State var index = 0
     @State var buyTicket = false
+    @State var showPerf = false
+    @State var time = 0
     
     var body: some View {
         VStack(spacing: 0) {
             
             ZStack {
-                
-                MainView(buyTicket: $buyTicket)
+                MainView(buyTicket: $buyTicket, time: $time, showPerf: $showPerf)
                     .opacity(self.index == 0 ? 1 : 0)
                 
                 Text("Создать акцию/инициативу")
@@ -98,6 +99,7 @@ struct BottomMenu: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .navigate(to: MatchView(), when: $buyTicket)
+        .navigate(to: LightPerfView(time: self.time), when: $showPerf)
     }
 }
 

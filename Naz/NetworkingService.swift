@@ -241,7 +241,6 @@ class Perfomarmance: ObservableObject {
                 case .success:
                     let json = try! JSON(data: response.data!)
                     if json != "" {
-                        print(json)
                         self.performances.removeAll()
                         let result = json["result"].arrayValue
                         for i in result {

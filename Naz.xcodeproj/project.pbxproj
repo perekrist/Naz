@@ -28,6 +28,8 @@
 		CAFA141424F12330001A0EDB /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141324F12330001A0EDB /* Place.swift */; };
 		CAFA141624F125D3001A0EDB /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141524F125D3001A0EDB /* PlaceView.swift */; };
 		CAFA141824F157D5001A0EDB /* Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141724F157D5001A0EDB /* Performance.swift */; };
+		CAFA141A24F1FEF4001A0EDB /* LighthPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141924F1FEF4001A0EDB /* LighthPerformance.swift */; };
+		CAFA141C24F2017D001A0EDB /* LightPerfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA141B24F2017D001A0EDB /* LightPerfView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		CAFA141324F12330001A0EDB /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		CAFA141524F125D3001A0EDB /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		CAFA141724F157D5001A0EDB /* Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Performance.swift; sourceTree = "<group>"; };
+		CAFA141924F1FEF4001A0EDB /* LighthPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LighthPerformance.swift; sourceTree = "<group>"; };
+		CAFA141B24F2017D001A0EDB /* LightPerfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightPerfView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 				CAFA13FF24F0DCE5001A0EDB /* NetworkingService.swift */,
 				CAFA140524F0EBA8001A0EDB /* Colors.swift */,
 				CAFA140724F0ECEA001A0EDB /* Navigatoin.swift */,
+				CAFA141924F1FEF4001A0EDB /* LighthPerformance.swift */,
 			);
 			path = Naz;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				CAFA140C24F0FE04001A0EDB /* MatchView.swift */,
 				CAFA141124F10CC1001A0EDB /* AccountView.swift */,
 				CAFA141524F125D3001A0EDB /* PlaceView.swift */,
+				CAFA141B24F2017D001A0EDB /* LightPerfView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,9 +281,11 @@
 				CAFA140424F0E512001A0EDB /* Event.swift in Sources */,
 				CAFA140624F0EBA8001A0EDB /* Colors.swift in Sources */,
 				CAFA13DE24F0CF13001A0EDB /* AppDelegate.swift in Sources */,
+				CAFA141C24F2017D001A0EDB /* LightPerfView.swift in Sources */,
 				CAFA140224F0E4E4001A0EDB /* MainView.swift in Sources */,
 				CAFA141224F10CC1001A0EDB /* AccountView.swift in Sources */,
 				CAFA13E024F0CF13001A0EDB /* SceneDelegate.swift in Sources */,
+				CAFA141A24F1FEF4001A0EDB /* LighthPerformance.swift in Sources */,
 				CAFA13FE24F0DABD001A0EDB /* CShape.swift in Sources */,
 				CAFA141024F0FE2E001A0EDB /* Sector.swift in Sources */,
 				CAFA140024F0DCE5001A0EDB /* NetworkingService.swift in Sources */,

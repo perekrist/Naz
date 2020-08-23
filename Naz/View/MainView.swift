@@ -11,9 +11,13 @@ import SVProgressHUD
 
 struct MainView: View {
     @State var performances: [Performance] = []
-    @Binding var buyTicket: Bool
+    
     @ObservedObject var networkService = NetworkService()
     @ObservedObject var perfomarmance = Perfomarmance()
+    
+    @Binding var buyTicket: Bool
+    @Binding var time: Int
+    @Binding var showPerf: Bool
     
     var body: some View {
         ZStack {
@@ -80,21 +84,33 @@ struct MainView: View {
                     } else {
                         ForEach(self.performances, id: \.self) { perf in
                             HStack {
-                                Text(perf.action)
-                                    .padding()
-                                    .foregroundColor(Colors.blue)
+                                VStack {
+                                    Text(perf.action)
+                                        .padding(.horizontal)
+                                        .padding(.top)
+                                        .foregroundColor(Colors.blue)
+                                    Text(perf.what ?? "--")
+                                        .padding(.horizontal)
+                                        .padding(.bottom)
+                                        .foregroundColor(Colors.blue)
+                                }
                                 Text("\(Date(timeIntervalSince1970: TimeInterval(perf.timestamp)))")
                                     .padding()
                                     .foregroundColor(Colors.blue)
                             }.background(Color.white)
                                 .cornerRadius(20)
                                 .padding()
+                                .onTapGesture {
+                                    if perf.action == "turn-on-your-lamp" {
+                                        self.time = perf.timestamp
+                                        self.showPerf = true
+                                    }
+                            }
                         }
                     }
                     Spacer()
                 }
             }
-            
         }
     }
 }
