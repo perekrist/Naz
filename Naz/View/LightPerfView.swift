@@ -13,14 +13,18 @@ struct LightPerfView: View {
     @State var back = false
     
     @State var timeLeft = 0
+    @State var perfTime = 0
+    @State var performance = [1, 0, 1, 1, 0, 1, 0, 0, 0.5]
     
-    //    var lightPerf = LighthPerformance()
     var timer: Timer {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
-            //            self.timeLeft = self.getRemTime()
-            //            print(self.timeLeft)
             if self.timeLeft > 0 {
-                self.timeLeft = self.timeLeft - 1
+                self.timeLeft -= 1
+            } else {
+                if self.perfTime < self.performance.count {
+                    UIScreen.main.brightness = CGFloat(self.performance[self.perfTime])
+                    self.perfTime += 1
+                }
             }
         }
     }
@@ -60,7 +64,6 @@ struct LightPerfView: View {
     
     func getRemTime() -> Int {
         let timestamp = NSDate().timeIntervalSince1970
-        print(timestamp)
         return Int(time - Int(timestamp))
     }
 }
