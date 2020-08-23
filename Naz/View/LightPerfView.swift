@@ -18,14 +18,19 @@ struct LightPerfView: View {
     
     var timer: Timer {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
-            if self.timeLeft > 0 {
-                self.timeLeft -= 1
-            } else {
-                if self.perfTime < self.performance.count {
-                    UIScreen.main.brightness = CGFloat(self.performance[self.perfTime])
-                    self.perfTime += 1
+            withAnimation {
+                if self.timeLeft > 0 {
+                    self.timeLeft -= 1
+                } else {
+                    if self.perfTime < self.performance.count {
+                        UIScreen.main.brightness = CGFloat(self.performance[self.perfTime])
+                        self.perfTime += 1
+                    } else {
+                        self.back = true
+                    }
                 }
             }
+            
         }
     }
     
@@ -38,21 +43,41 @@ struct LightPerfView: View {
                         self.back.toggle()
                     }) {
                         Image(systemName: "arrow.left.square.fill")
-                            .foregroundColor(Colors.yellow)
+                            .foregroundColor(Colors.blue)
                     }.padding(.leading, 60)
                     Spacer()
                 }
-                Text("Дата начала: \(Date(timeIntervalSince1970: TimeInterval(self.time)))")
+                HStack {
+                    Text("Дата начала: ")
+                        .padding()
+                        .foregroundColor(Colors.blue)
+                    
+                    Text("\(Date(timeIntervalSince1970: TimeInterval(self.time)))")
+                        .bold()
+                        .padding()
+                        .foregroundColor(Colors.blue)
+                        .multilineTextAlignment(.center)
+                }
+                Text("До начала осталось:")
+                    .font(.system(size: 20))
                     .padding()
                     .foregroundColor(Colors.blue)
-                
-                Text("До начала осталось \(timeLeft) секунд")
+                Text("\(timeLeft) с. ")
+                    .font(.system(size: 45))
+                    .bold()
                     .padding()
                     .foregroundColor(Colors.blue)
                     .onAppear(perform: {
                         _ = self.timer
                     })
                 
+                Spacer()
+                
+                Text("Поднимите телефон над головой и направьте экраном к полю")
+                    .font(.system(size: 30))
+                    .padding()
+                    .foregroundColor(Colors.blue)
+                    .multilineTextAlignment(.center)
                 Spacer()
             }
         }
