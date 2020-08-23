@@ -12,6 +12,11 @@ import SwiftUI
 class LighthPerformance {
     var timer: Timer?
     
+    func getRemTime(time: Int) -> Int {
+        let timestamp = NSDate().timeIntervalSince1970
+        print(timestamp)
+        return Int(time - Int(timestamp))
+    }
     
     func start() {
         UIScreen.main.brightness = 1
